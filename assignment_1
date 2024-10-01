@@ -1,0 +1,158 @@
+# Define the Customer class
+class Customer:
+    def __init__(self, name, email):
+        self.name = name        # Customer's name
+        self.email = email      # Customer's email
+
+    # Getter methods
+    def get_name(self):
+        return self.name
+
+    def get_email(self):
+        return self.email
+
+    # Setter methods
+    def set_name(self, name):
+        self.name = name
+
+    def set_email(self, email):
+        self.email = email
+
+    pass  # Adding pass for the class as a whole
+
+# Define the Reservation class
+class Reservation:
+    def __init__(self, reservation_id, check_in_date, check_out_date, room_type, nights, rooms, total_amount):
+        self.reservation_id = reservation_id
+        self.check_in_date = check_in_date
+        self.check_out_date = check_out_date
+        self.room_type = room_type
+        self.nights = nights
+        self.rooms = rooms
+        self.total_amount = total_amount
+
+    # Getter methods
+    def get_reservation_id(self):
+        return self.reservation_id
+
+    def get_check_in_date(self):
+        return self.check_in_date
+
+    def get_check_out_date(self):
+        return self.check_out_date
+
+    def get_room_type(self):
+        return self.room_type
+
+    def get_nights(self):
+        return self.nights
+
+    def get_rooms(self):
+        return self.rooms
+
+    def get_total_amount(self):
+        return self.total_amount
+
+    # Setter methods
+    def set_reservation_id(self, reservation_id):
+        self.reservation_id = reservation_id
+
+    def set_check_in_date(self, check_in_date):
+        self.check_in_date = check_in_date
+
+    def set_check_out_date(self, check_out_date):
+        self.check_out_date = check_out_date
+
+    def set_room_type(self, room_type):
+        self.room_type = room_type
+
+    def set_nights(self, nights):
+        self.nights = nights
+
+    def set_rooms(self, rooms):
+        self.rooms = rooms
+
+    def set_total_amount(self, total_amount):
+        self.total_amount = total_amount
+
+    # Method to generate receipt
+    def generate_receipt(self):
+        print(f"Receipt generated for Reservation ID: {self.reservation_id}, Total Amount: ${self.total_amount}")
+    
+    pass  # Adding pass for the class
+
+# Define the Room class
+class Room:
+    def __init__(self, room_number, room_type):
+        self.room_number = room_number  # Room number
+        self.room_type = room_type      # Type of the room (e.g., 2 Queen Beds)
+
+    # Getter methods
+    def get_room_number(self):
+        return self.room_number
+
+    def get_room_type(self):
+        return self.room_type
+
+    # Setter methods
+    def set_room_number(self, room_number):
+        self.room_number = room_number
+
+    def set_room_type(self, room_type):
+        self.room_type = room_type
+
+    pass  # Adding pass for the class
+
+# Define the Payment class
+class Payment:
+    def __init__(self, payment_method, amount, taxes_and_fees):
+        self.payment_method = payment_method  # Payment method (e.g., Mastercard ending in 9904)
+        self.amount = amount                  # Total amount
+        self.taxes_and_fees = taxes_and_fees  # Taxes and fees
+
+    # Getter methods
+    def get_payment_method(self):
+        return self.payment_method
+
+    def get_amount(self):
+        return self.amount
+
+    def get_taxes_and_fees(self):
+        return self.taxes_and_fees
+
+    # Setter methods
+    def set_payment_method(self, payment_method):
+        self.payment_method = payment_method
+
+    def set_amount(self, amount):
+        self.amount = amount
+
+    def set_taxes_and_fees(self, taxes_and_fees):
+        self.taxes_and_fees = taxes_and_fees
+
+    # Method to process payment
+    def process_payment(self):
+        print(f"Processing payment of ${self.amount} via {self.payment_method}")
+        print(f"Taxes and Fees: ${self.taxes_and_fees}")
+    
+    pass  # Adding pass for the class
+
+# Create objects and use methods to print information based on the provided screenshot
+
+# Customer Information
+customer = Customer("Ted Vera", "tedvera@mac.com")
+print(f"Customer: {customer.get_name()}, Email: {customer.get_email()}")
+
+# Reservation Information
+reservation = Reservation(52523687, "Sun, Aug 22, 2010 - 03:00 PM", "Tue, Aug 24, 2010 - 12:00 PM", "2 Queen Beds / No Smoking", 2, 1, 201.48)
+print(f"Reservation ID: {reservation.get_reservation_id()}, Check-in: {reservation.get_check_in_date()}, Check-out: {reservation.get_check_out_date()}")
+print(f"Room Type: {reservation.get_room_type()}, Number of Nights: {reservation.get_nights()}, Number of Rooms: {reservation.get_rooms()}")
+reservation.generate_receipt()
+
+# Room Information
+room = Room(1, "2 Queen Beds / No Smoking")
+print(f"Room Number: {room.get_room_number()}, Room Type: {room.get_room_type()}")
+
+# Payment Information
+payment = Payment("Mastercard ending in 9904", 201.48, 21.58)
+payment.process_payment()
